@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Afenix Technologies</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      font-family:'Inter',sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* BACKGROUND */
+
+    .background{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-2;
+      background:
+      radial-gradient(circle at top left, rgba(91,124,250,0.18), transparent 35%),
+      radial-gradient(circle at bottom right, rgba(0,225,255,0.12), transparent 35%),
+      #000;
+    }
+
+    .glow{
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.06);
+      filter:blur(120px);
+      top:20%;
+      left:50%;
+      transform:translateX(-50%);
+      animation:float 8s ease-in-out infinite alternate;
+      z-index:-1;
+    }
+
+    @keyframes float{
+
+      from{
+        transform:translateX(-50%) translateY(0px);
+      }
+
+      to{
+        transform:translateX(-50%) translateY(-40px);
+      }
+
+    }
+
+    /* GENERAL SECTION */
+
+    section{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      padding:40px;
+    }
+
+    /* HERO */
+
+    .hero-content{
+      text-align:center;
+      transform:translateY(40px);
+      opacity:0;
+      animation:heroReveal 1.8s ease forwards;
+    }
+
+    @keyframes heroReveal{
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    .welcome{
+      font-size:14px;
+      letter-spacing:8px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.45);
+      margin-bottom:22px;
+    }
+
+    h1{
+      font-size:110px;
+      font-weight:800;
+      letter-spacing:-5px;
+      line-height:0.95;
+      max-width:1100px;
+      margin:auto;
+      text-shadow:
+        0 0 30px rgba(255,255,255,0.08);
+    }
+
+    .founder{
+      margin-top:30px;
+      font-size:22px;
+      font-weight:300;
+      color:rgba(255,255,255,0.72);
+    }
+
+    .scroll{
+      position:absolute;
+      bottom:45px;
+      left:50%;
+      transform:translateX(-50%);
+      font-size:12px;
+      letter-spacing:5px;
+      color:rgba(255,255,255,0.35);
+      text-transform:uppercase;
+      animation:bounce 2s infinite;
+    }
+
+    @keyframes bounce{
+
+      0%,100%{
+        transform:translateX(-50%) translateY(0);
+      }
+
+      50%{
+        transform:translateX(-50%) translateY(10px);
+      }
+
+    }
+
+    /* PANELS */
+
+    .panel{
+      flex-direction:column;
+      text-align:center;
+    }
+
+    .panel-content{
+      max-width:1000px;
+      transform:translateY(80px);
+      opacity:0;
+      transition:1.2s ease;
+    }
+
+    .panel-content.show{
+      transform:translateY(0);
+      opacity:1;
+    }
+
+    .panel h2{
+      font-size:90px;
+      font-weight:800;
+      letter-spacing:-4px;
+      margin-bottom:25px;
+    }
+
+    .panel p{
+      font-size:24px;
+      line-height:1.7;
+      color:rgba(255,255,255,0.7);
+      max-width:850px;
+      margin:auto;
+    }
+
+    .huge-text{
+      font-size:160px;
+      font-weight:800;
+      letter-spacing:-8px;
+      opacity:0.05;
+      position:absolute;
+      z-index:-1;
+      user-select:none;
+    }
+
+    /* CONTACT */
+
+    .contact-container{
+      margin-top:50px;
+      display:flex;
+      flex-direction:column;
+      gap:25px;
+      align-items:center;
+    }
+
+    .contact-card{
+      width:100%;
+      max-width:850px;
+      padding:30px 40px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(20px);
+      transition:0.4s ease;
+      text-align:left;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-5px);
+      background:rgba(255,255,255,0.06);
+    }
+
+    .label{
+      font-size:14px;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.45);
+      margin-bottom:14px;
+    }
+
+    .value{
+      font-size:34px;
+      font-weight:700;
+      color:white;
+      letter-spacing:-1px;
+    }
+
+    .email{
+      font-size:28px;
+      word-break:break-word;
+    }
+
+    /* FINAL SECTION */
+
+    .launch h3{
+      font-size:120px;
+      font-weight:800;
+      letter-spacing:-5px;
+      margin-bottom:20px;
+      text-align:center;
+    }
+
+    .launch p{
+      font-size:22px;
+      color:rgba(255,255,255,0.65);
+      line-height:1.8;
+      text-align:center;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:58px;
+        letter-spacing:-2px;
+      }
+
+      .founder{
+        font-size:16px;
+      }
+
+      .panel h2{
+        font-size:46px;
+      }
+
+      .panel p{
+        font-size:18px;
+      }
+
+      .launch h3{
+        font-size:58px;
+      }
+
+      .huge-text{
+        font-size:70px;
+      }
+
+      .contact-card{
+        padding:24px;
+      }
+
+      .value{
+        font-size:22px;
+      }
+
+      .email{
+        font-size:18px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="background"></div>
+  <div class="glow"></div>
+
+  <!-- HERO -->
+
+  <section>
+
+    <div class="hero-content">
+
+      <div class="welcome">
+        Welcome To
+      </div>
+
+      <h1>
+        Afenix<br>
+        Technologies
+      </h1>
+
+      <div class="founder">
+        Founded by Mohd Afnan Hashmi
+      </div>
+
+    </div>
+
+    <div class="scroll">
+      Scroll
+    </div>
+
+  </section>
+
+  <!-- SECTION 2 -->
+
+  <section class="panel">
+
+    <div class="huge-text">
+      Future
+    </div>
+
+    <div class="panel-content reveal">
+
+      <h2>
+        Intelligent Innovation
+      </h2>
+
+      <p>
+        Building next-generation experiences through advanced technology,
+        modern design, and intelligent systems engineered for the future.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SECTION 3 -->
+
+  <section class="panel">
+
+    <div class="huge-text">
+      Vision
+    </div>
+
+    <div class="panel-content reveal">
+
+      <h2>
+        Designed To Feel Different
+      </h2>
+
+      <p>
+        Minimal. Elegant. Powerful.
+        Inspired by simplicity and crafted with precision
+        to create a timeless digital identity.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT SECTION -->
+
+  <section class="panel">
+
+    <div class="huge-text">
+      Contact
+    </div>
+
+    <div class="panel-content reveal">
+
+      <h2>
+        Contact Information
+      </h2>
+
+      <div class="contact-container">
+
+        <div class="contact-card">
+
+          <div class="label">
+            Mobile
+          </div>
+
+          <div class="value">
+            +972 55 949 6671
+          </div>
+
+        </div>
+
+        <div class="contact-card">
+
+          <div class="label">
+            Telephone
+          </div>
+
+          <div class="value">
+            +972 3 374 1686
+          </div>
+
+        </div>
+
+        <div class="contact-card">
+
+          <div class="label">
+            Email
+          </div>
+
+          <div class="value email">
+            afnanhashmi@afenixtechnologies.com
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FINAL -->
+
+  <section class="launch">
+
+    <div class="panel-content reveal">
+
+      <h3>
+        Launching Soon
+      </h3>
+
+      <p>
+        Afenix Technologies is preparing something extraordinary.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const reveals = document.querySelectorAll('.reveal');
+
+    window.addEventListener('scroll', () => {
+
+      reveals.forEach(reveal => {
+
+        const top = reveal.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 100){
+          reveal.classList.add('show');
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
