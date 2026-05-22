@@ -119,9 +119,31 @@
       animation:fadeUp 1.5s 0.8s ease forwards;
     }
     .hero-logo-badge img {
-      width:100%; height:100%; object-fit:contain;
-      filter: drop-shadow(0 0 40px rgba(74,158,255,0.4)) drop-shadow(0 0 80px rgba(196,163,90,0.2));
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  mix-blend-mode: screen;
+  opacity: 0.88;
+
+  filter:
+    drop-shadow(0 0 18px rgba(74,158,255,0.18))
+    drop-shadow(0 0 40px rgba(74,158,255,0.10))
+    blur(0.2px);
+
+  animation: logoFloat 8s ease-in-out infinite;
+}
+@keyframes logoFloat {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
 
     .hero-tag {
       font-size:11px; letter-spacing:6px; text-transform:uppercase;
@@ -382,7 +404,7 @@
 
     <!-- Logo -->
     <div class="hero-logo-badge">
-      <img src="data:image/jpeg;base64,LOGO_B64_PLACEHOLDER" alt="Afenix Technologies Logo" />
+      <img src="./logo.png" alt="Afenix Technologies Logo" />
     </div>
 
     <div class="hero-tag">Afenix Technologies</div>
