@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AfenixCore — Plans & Features</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+  .page-hero{
+    min-height:72vh; display:flex; flex-direction:column;
+    justify-content:flex-end; padding:160px 64px 80px;
+    position:relative; overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .page-hero-content{position:relative;z-index:2;max-width:760px;}
+  .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,7.5vw,120px);font-weight:300;line-height:.9;letter-spacing:-4px;margin-bottom:28px;}
+  .page-hero h1 em{font-style:italic;color:var(--gold-l);}
+  .page-hero p{font-size:15px;color:var(--off);max-width:520px;line-height:2.1;letter-spacing:.3px;}
+
+  /* Plans grid */
+  .plans-section{padding:120px 64px;}
+  .plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:64px;}
+  .plan-card{
+    background:var(--navy-mid); padding:56px 44px;
+    position:relative; overflow:hidden;
+    transition:background .45s;
+    display:flex;flex-direction:column;
+  }
+  .plan-card::after{
+    content:''; position:absolute; top:0;left:0;right:0; height:2px;
+    background:linear-gradient(to right,var(--blue),var(--gold));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .plan-card:hover{background:rgba(74,158,255,.04);}
+  .plan-card:hover::after{transform:scaleX(1);}
+  .plan-card.highlight{background:rgba(74,158,255,.06);}
+  .plan-card.highlight::after{transform:scaleX(1);}
+
+  .plan-tier{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+  .plan-emoji{font-size:2.4rem;margin-bottom:20px;display:block;}
+  .plan-name{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;line-height:1;letter-spacing:-1px;margin-bottom:8px;}
+  .plan-name em{font-style:italic;color:var(--gold-l);}
+  .plan-tagline{font-size:11px;letter-spacing:1.5px;color:var(--dim);font-style:italic;margin-bottom:36px;line-height:1.7;}
+  .plan-divider{width:40px;height:1px;background:linear-gradient(to right,var(--blue),transparent);margin-bottom:32px;}
+  .plan-feats{list-style:none;display:flex;flex-direction:column;gap:14px;flex:1;}
+  .plan-feats li{font-size:13px;color:var(--off);display:flex;align-items:flex-start;gap:12px;line-height:1.65;}
+  .plan-feats li::before{content:'—';color:var(--blue);flex-shrink:0;font-size:10px;margin-top:4px;}
+  .plan-feats li.inherited{color:var(--dim);}
+  .plan-feats li.inherited::before{color:var(--dim);}
+  .plan-foot{margin-top:36px;}
+
+  /* Tech section */
+  .tech-section{padding:100px 64px;background:var(--navy-mid);border-top:1px solid var(--border);}
+  .tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px;margin-top:48px;}
+  .tech-chip{
+    background:rgba(74,158,255,.04); border:1px solid var(--border);
+    border-radius:3px; padding:18px 14px; text-align:center;
+    font-size:11px;letter-spacing:1px;color:var(--dim);
+    transition:all .3s; cursor:default;
+  }
+  .tech-chip:hover{border-color:rgba(74,158,255,.35);color:var(--blue);background:rgba(74,158,255,.07);transform:translateY(-4px);box-shadow:0 8px 30px rgba(74,158,255,.1);}
+  .tech-chip span{display:block;font-size:1.5rem;margin-bottom:8px;}
+
+  @media(max-width:900px){
+    .page-hero{padding:140px 24px 60px;}
+    .plans-section{padding:80px 24px;}
+    .plans-grid{grid-template-columns:1fr;gap:0;}
+    .plan-card{border-bottom:1px solid var(--border);}
+    .tech-section{padding:80px 24px;}
+  }
+  </style>
+</head>
+<body>
+<div id="page-veil"></div>
+<canvas id="neural-canvas"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div id="progress-bar"></div>
+
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html">Afenix</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html" class="active">AfenixCore</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Get a Demo</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="watermark" style="right:-30px;bottom:-20px;opacity:1;">Core</div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 20% 60%,rgba(74,158,255,.06),transparent);pointer-events:none;"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(196,163,90,.05),transparent);pointer-events:none;"></div>
+  <div class="page-hero-content">
+    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:14px;" class="reveal">
+      <span style="width:24px;height:1px;background:var(--blue);display:inline-block;"></span>
+      The Product
+    </div>
+    <h1 class="reveal d1">Afenix<em>Core</em></h1>
+    <p class="reveal d2">One corporate AI platform. Three plans. Infinite departments. All powered by a private, fine-tuned LLM trained on your business — deployed where you need it.</p>
+    <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap;" class="reveal d3">
+      <span class="badge-soon">Launching Soon</span>
+      <a class="btn btn-ghost" href="contact.html" style="padding:9px 24px;font-size:9px;">
+        Join Waitlist
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PLANS -->
+<section class="plans-section">
+  <div class="watermark" style="right:-40px;top:50%;transform:translateY(-50%);">Plans</div>
+  <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;" class="reveal">Choose Your Plan</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,64px);font-weight:300;letter-spacing:-1.5px;" class="reveal d1">Three Plans. <em>One Intelligence.</em></h2>
+  <p style="font-size:14px;color:var(--off);margin-top:14px;max-width:500px;line-height:1.9;" class="reveal d2">No pricing yet — all plans are Coming Soon. Join the waitlist and get priority access at launch.</p>
+
+  <div class="plans-grid">
+    <!-- STARTUP -->
+    <div class="plan-card reveal">
+      <div class="plan-tier">Plan 01</div>
+      <span class="plan-emoji">🚀</span>
+      <div class="plan-name">Startup <em>Plan</em></div>
+      <div class="plan-tagline">"Your first AI employee"<br>For early-stage teams moving fast.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-feats">
+        <li><strong>Ops Manager</strong> — task delegation, workflow tracking, daily automation</li>
+        <li><strong>R&D Assistant</strong> — research summaries, technical reports, experiment tracking</li>
+        <li><strong>Meeting Summariser</strong> — transcription, action points, follow-ups</li>
+        <li><strong>Document Intelligence</strong> — Q&A from your SOPs, wikis, and internal docs</li>
+      </ul>
+      <div class="plan-foot">
+        <span class="badge-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- CORPORATE -->
+    <div class="plan-card highlight reveal d1">
+      <div class="plan-tier" style="color:var(--gold);">Plan 02 — Most Popular</div>
+      <span class="plan-emoji">🏢</span>
+      <div class="plan-name">Corporate <em>Plan</em></div>
+      <div class="plan-tagline">"An AI for every department"<br>For scaling businesses with complex ops.</div>
+      <div class="plan-divider" style="background:linear-gradient(to right,var(--gold),transparent);"></div>
+      <ul class="plan-feats">
+        <li class="inherited">Everything in Startup, plus:</li>
+        <li><strong>HR Agent</strong> — onboarding, policies, leave management, employee queries</li>
+        <li><strong>Accountancy Agent</strong> — financial reports, anomaly detection, summaries</li>
+        <li><strong>Technical Ops Agent</strong> — incident reports, monitoring, dev assistance</li>
+        <li><strong>Sales Outreach Agent</strong> — lead research, outreach drafts, follow-up scheduling</li>
+        <li><strong>Custom Support Agent</strong> — fine-tuned on your products for customer-facing support</li>
+      </ul>
+      <div class="plan-foot">
+        <span class="badge-soon" style="border-color:rgba(196,163,90,.3);background:rgba(196,163,90,.07);color:var(--gold-l);">Coming Soon</span>
+      </div>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="plan-card reveal d2">
+      <div class="plan-tier">Plan 03</div>
+      <span class="plan-emoji">👑</span>
+      <div class="plan-name">Enterprise <em>Plan</em></div>
+      <div class="plan-tagline">"Your business. Your model. Your rules."<br>Full sovereign AI deployment.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-feats">
+        <li class="inherited">Everything in Corporate, plus:</li>
+        <li><strong>Private LLM Deployment</strong> — fully on-premise, zero data leaves your servers</li>
+        <li><strong>Custom Fine-Tuning</strong> — model trained on your proprietary data &amp; processes</li>
+        <li><strong>Multi-Dept. Orchestration</strong> — all agents interconnected across departments</li>
+        <li><strong>Dedicated Support</strong> — white-glove onboarding, maintenance, priority access</li>
+      </ul>
+      <div class="plan-foot">
+        <span class="badge-soon">Coming Soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="tech-section">
+  <div class="watermark" style="right:-40px;top:50%;transform:translateY(-50%);">Stack</div>
+  <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;" class="reveal">Powered By</div>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,60px);font-weight:300;letter-spacing:-1.5px;" class="reveal d1">Battle-Tested <em>Open-Source</em> Stack</h2>
+  <p style="font-size:14px;color:var(--off);margin-top:14px;max-width:520px;line-height:1.9;" class="reveal d2">Transparent, auditable, and yours — built on the best open-source AI technologies available.</p>
+  <div class="tech-grid">
+    <div class="tech-chip reveal d1"><span>🦙</span>Llama 3.1</div>
+    <div class="tech-chip reveal d2"><span>🔍</span>LlamaIndex</div>
+    <div class="tech-chip reveal d3"><span>🗃️</span>ChromaDB</div>
+    <div class="tech-chip reveal d1"><span>⚙️</span>Ollama</div>
+    <div class="tech-chip reveal d2"><span>🔗</span>LangChain</div>
+    <div class="tech-chip reveal d3"><span>🤝</span>CrewAI</div>
+    <div class="tech-chip reveal d1"><span>🎙️</span>faster-whisper</div>
+    <div class="tech-chip reveal d2"><span>📊</span>Plotly</div>
+    <div class="tech-chip reveal d3"><span>🐼</span>Pandas</div>
+    <div class="tech-chip reveal d1"><span>🚀</span>FastAPI</div>
+    <div class="tech-chip reveal d2"><span>🐳</span>Docker</div>
+    <div class="tech-chip reveal d3"><span>🧬</span>Unsloth QLoRA</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="font-size:18px;">Afenix</div>
+      <p>Private AI for the modern enterprise. Trained on your data. Deployed on your terms.</p>
+    </div>
+    <div class="footer-col"><h5>Product</h5><ul><li><a href="products.html">AfenixCore</a></li><li><a href="products.html">Startup Plan</a></li><li><a href="products.html">Corporate Plan</a></li><li><a href="products.html">Enterprise Plan</a></li></ul></div>
+    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Demo</a></li><li><a href="contact.html">Join Waitlist</a></li><li><a href="contact.html">Join Our Team</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Afenix Technologies</span><span>Founded by Mohd Afnan Hashmi</span></div>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
