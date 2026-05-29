@@ -1,149 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>About — Afenix Technologies</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-  .page-hero{min-height:72vh;display:flex;flex-direction:column;justify-content:flex-end;padding:160px 64px 80px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
-  .page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(56px,7.5vw,120px);font-weight:300;line-height:.9;letter-spacing:-4px;margin-bottom:28px;}
-  .page-hero h1 em{font-style:italic;color:var(--gold-l);}
-  .page-hero p{font-size:15px;color:var(--off);max-width:520px;line-height:2.1;}
-  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-  .story-text p{font-size:15px;color:var(--off);line-height:2.1;margin-bottom:18px;}
-  .story-text p strong{color:var(--white);}
-  .stat-card{background:var(--navy-mid);border:1px solid var(--border);border-radius:4px;padding:44px;box-shadow:0 0 60px rgba(74,158,255,.07);}
-  .stat-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:-1px;line-height:1.2;margin-bottom:10px;}
-  .stat-card h3 em{font-style:italic;color:var(--gold-l);}
-  .stat-card p{font-size:13px;color:var(--off);line-height:1.9;margin-bottom:28px;}
-  .stat-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .stat-box{background:rgba(74,158,255,.05);border:1px solid var(--border);border-radius:3px;padding:18px;}
-  .stat-n{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--blue);line-height:1;margin-bottom:6px;}
-  .stat-l{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--dim);line-height:1.5;}
-  .mv-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px;}
-  .mv-card{padding:44px;border:1px solid var(--border);border-radius:4px;background:var(--navy-mid);position:relative;overflow:hidden;transition:transform .4s,border-color .4s;}
-  .mv-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--blue),transparent);transform:scaleX(0);transition:transform .5s;}
-  .mv-card:hover{transform:translateY(-6px);border-color:rgba(74,158,255,.25);}
-  .mv-card:hover::before{transform:scaleX(1);}
-  .mv-icon{font-size:2.2rem;margin-bottom:18px;display:block;}
-  .mv-card h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:-1px;margin-bottom:14px;}
-  .mv-card h3 em{font-style:italic;color:var(--gold-l);}
-  .mv-card p{font-size:14px;color:var(--off);line-height:2.1;}
-  .values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
-  .val-card{padding:32px;border:1px solid var(--border);border-radius:3px;background:var(--navy-mid);transition:transform .4s,border-color .4s,background .4s;}
-  .val-card:hover{transform:translateY(-5px);border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.04);}
-  .val-n{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:rgba(74,158,255,.1);line-height:1;margin-bottom:14px;}
-  .val-card h4{font-size:13px;letter-spacing:1px;margin-bottom:10px;color:var(--white);}
-  .val-card p{font-size:13px;color:var(--off);line-height:1.9;}
-  .founder-section{background:var(--navy-mid);border-top:1px solid var(--border);}
-  .founder-inner{display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto;}
-  .founder-av{width:160px;height:160px;border-radius:20px;background:linear-gradient(135deg,var(--blue),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;font-style:italic;color:var(--navy);box-shadow:0 0 60px rgba(74,158,255,.2);}
-  .founder-role{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
-  .founder-name-el{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,56px);font-weight:300;letter-spacing:-1.5px;margin-bottom:18px;}
-  .founder-name-el em{font-style:italic;color:var(--gold-l);}
-  .founder-text{font-size:14px;color:var(--off);line-height:2.1;max-width:560px;}
-  @media(max-width:900px){.page-hero{padding:140px 24px 60px;}.story-grid{grid-template-columns:1fr;gap:44px;}.mv-grid{grid-template-columns:1fr;}.values-grid{grid-template-columns:1fr 1fr;}.founder-inner{grid-template-columns:1fr;gap:32px;}}
-  @media(max-width:600px){.values-grid{grid-template-columns:1fr;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Afenix Technologies</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div id="page-veil"></div>
-<canvas id="neural-canvas"></canvas>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div id="progress-bar"></div>
-<nav id="mainNav">
-  <a class="nav-logo" href="index.html">Afenix</a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="products.html">AfenixCore</a></li>
-    <li><a href="about.html" class="active">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a class="nav-cta" href="contact.html">Get a Demo</a>
+<div id="loader"><img src="logo.png" alt="Afenix"><div class="load-word">AFENIX</div><div class="load-bar"><i></i></div></div>
+<canvas id="bg"></canvas><div class="vignette"></div><div class="grain"></div>
+<div class="cur-dot"></div><div class="cur-ring"></div>
+
+<nav id="nav">
+  <a href="index.html" class="brand"><img src="logo.png" alt=""><span class="nm">Afenix<b>·tech</b></span></a>
+  <div class="navlinks"><a href="index.html">Home</a><a href="products.html">AfenixCore</a><a href="about.html" class="active">About</a><a href="contact.html">Contact</a></div>
+  
 </nav>
-<div class="page-hero">
-  <div class="watermark" style="right:-30px;bottom:-30px;">Story</div>
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 15% 70%,rgba(196,163,90,.05),transparent);pointer-events:none;"></div>
-  <div style="position:relative;z-index:2;">
-    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;display:flex;align-items:center;gap:14px;" class="reveal"><span style="width:24px;height:1px;background:var(--blue);display:inline-block;"></span>Our Story</div>
-    <h1 class="reveal d1">We're Building<br><em>Private AI</em><br>Businesses Own.</h1>
-    <p class="reveal d2">Founded on the belief that your data is too valuable and too sensitive to hand over to a third-party cloud model.</p>
-  </div>
-</div>
-<section class="panel" style="background:var(--navy);">
-  <div style="max-width:1160px;width:100%;margin:0 auto;">
-    <div class="story-grid">
-      <div class="story-text">
-        <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;" class="reveal">The Origin</div>
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,64px);font-weight:300;letter-spacing:-1.5px;margin-bottom:28px;" class="reveal d1">Why We <em>Started</em></h2>
-        <div class="reveal d2">
-          <p>Every time a business uses a commercial AI tool, it feeds sensitive data into someone else's model. <strong>That is not intelligence. That is exposure.</strong></p>
-          <p>We started Afenix Technologies to flip this entirely. We build private, fine-tuned large language models that live on your infrastructure, trained on your data, with zero dependency on external servers.</p>
-          <p><strong>AfenixCore</strong> is our flagship platform — a corporate AI where every feature is powered by a model that knows your business and belongs to your business.</p>
-        </div>
-        <div style="margin-top:36px;" class="reveal d3"><a class="btn btn-ghost" href="products.html">View AfenixCore <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
+
+<main>
+<header class="phead">
+  <div class="hero-tag">ABOUT AFENIX</div>
+  <h1>We build the <span class="grad">intelligence of tomorrow.</span></h1>
+  <p>Afenix Technologies is a private-AI company built on one conviction: the most powerful intelligence a business can have is the one it actually owns.</p>
+</header>
+
+<section class="pad">
+  <div class="wrap">
+    <p class="about-lead reveal">Most AI sends your data somewhere else. <em>We refuse that trade.</em> AfenixCore is fine-tuned on your knowledge and deployed on your infrastructure — so the intelligence stays yours, end to end.</p>
+
+    <div class="arow reveal"><div class="alabel">Mission</div><div class="abody">
+      <p>To give every organisation a private intelligence layer as capable as the frontier models — without surrendering a single byte of proprietary data to a third party.</p>
+      <p>Sovereignty and capability should not be a choice. AfenixCore is our answer: <strong>nine specialised agents, one private model, zero data leaving your walls.</strong></p>
+    </div></div>
+    <div class="arow reveal"><div class="alabel">Principles</div><div class="abody">
+      <p><strong>Sovereign by design.</strong> Privacy is architecture, not a setting. No outbound calls, no telemetry, no copies of your weights.</p>
+      <p><strong>Designed to feel different.</strong> Minimal, elegant, powerful. The interface disappears and leaves only the work.</p>
+      <p><strong>Open foundations.</strong> Built on Llama 3.1, LangChain, ChromaDB, and Docker. Audit every layer. Never get locked in.</p>
+    </div></div>
+    <div class="arow reveal"><div class="alabel">Approach</div><div class="abody">
+      <p>We treat each deployment as a craft, not a configuration. Your model learns your SOPs, your tone, your edge cases — then runs entirely on hardware you control.</p>
+      <p>The result is an AI that knows your business intimately and answers to no one but you.</p>
+    </div></div>
+    <div class="arow reveal"><div class="alabel">Where we are</div><div class="abody">
+      <p>Afenix is preparing to launch, working closely with a small group of early partners across FinTech, B2B SaaS, and e-commerce to shape the platform before it opens broadly.</p>
+      <p>If that sounds like your team, <strong><a href="contact.html">we'd love to talk.</a></strong></p>
+    </div></div>
+
+    <div class="founder reveal">
+      <img src="logo.png" alt="Afenix">
+      <div class="fn">Mohd Afnan Hashmi</div>
+      <div class="fr">Founder · Afenix Technologies</div>
+      <p class="fq">"I started Afenix because I kept watching brilliant companies hand their most sensitive data to systems they couldn't see inside. Intelligence shouldn't come at the cost of ownership. AfenixCore is the proof it doesn't have to."</p>
+      <div class="founder-contact" style="margin-top:18px;display:flex;flex-direction:column;gap:8px;font-family:var(--mono);font-size:13px;opacity:.8">
+        <a href="tel:+972559496671" style="color:var(--blue-bright);text-decoration:none">📞 +972-55-949-6671</a>
+        <a href="mailto:afnanhashmi@afenixtechnologies.com" style="color:var(--blue-bright);text-decoration:none">✉ afnanhashmi@afenixtechnologies.com</a>
       </div>
-      <div class="stat-card reveal-r">
-        <h3>Built for the <em>AI-Native</em> Enterprise</h3>
-        <p>Developing private, on-premise corporate intelligence where your data never leaves your building.</p>
-        <div class="stat-row">
-          <div class="stat-box"><div class="stat-n">3</div><div class="stat-l">Plans in Development</div></div>
-          <div class="stat-box"><div class="stat-n">9+</div><div class="stat-l">AI Agents Being Built</div></div>
-          <div class="stat-box"><div class="stat-n">100%</div><div class="stat-l">Private Deployment</div></div>
-          <div class="stat-box"><div class="stat-n">0</div><div class="stat-l">Data to 3rd Parties</div></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
-<div class="section-divider"></div>
-<section class="panel" style="background:var(--navy-mid);">
-  <div style="max-width:1160px;width:100%;margin:0 auto;">
-    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;" class="reveal">What Drives Us</div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,64px);font-weight:300;letter-spacing:-1.5px;" class="reveal d1">Mission <em>&amp;</em> Vision</h2>
-    <div class="mv-grid">
-      <div class="mv-card reveal d1"><span class="mv-icon">&#127919;</span><h3>Our <em>Mission</em></h3><p>To make private, sovereign AI accessible to every business. We believe every organisation deserves an AI that works for them, not one that extracts from them.</p></div>
-      <div class="mv-card reveal d2"><span class="mv-icon">&#128301;</span><h3>Our <em>Vision</em></h3><p>A world where every company has its own intelligent layer — a model that understands its operations, speaks its language, and drives growth without compromising privacy.</p></div>
-    </div>
-  </div>
+
+<section class="pad">
+  <div class="wrap"><div class="cta-panel reveal"><h2>Build the <span class="grad">future.</span></h2><p>We're a small team with a large ambition. If private intelligence is the problem you want to solve, talk to us.</p><div class="actions"><a href="contact.html" class="btn btn-primary">Get in touch →</a></div></div></div>
 </section>
-<div class="section-divider"></div>
-<section class="panel" style="background:var(--navy);">
-  <div style="max-width:1160px;width:100%;margin:0 auto;">
-    <div style="font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--blue);margin-bottom:14px;" class="reveal">Principles</div>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4.5vw,64px);font-weight:300;letter-spacing:-1.5px;" class="reveal d1">What We <em>Stand For</em></h2>
-    <div class="values-grid">
-      <div class="val-card reveal d1"><div class="val-n">01</div><h4>Privacy First</h4><p>Your data is yours. We build systems where information never leaves your infrastructure — by design, not policy.</p></div>
-      <div class="val-card reveal d2"><div class="val-n">02</div><h4>Radical Transparency</h4><p>We build on open-source foundations. You can inspect, audit, and understand everything powering your AI.</p></div>
-      <div class="val-card reveal d3"><div class="val-n">03</div><h4>Business First AI</h4><p>We do not build AI for AI's sake. Every feature solves a real business problem with measurable ROI.</p></div>
-      <div class="val-card reveal d1"><div class="val-n">04</div><h4>Ownership</h4><p>When your model is trained on your data, it belongs to you. Not to us, not to a cloud provider — to you.</p></div>
-      <div class="val-card reveal d2"><div class="val-n">05</div><h4>Accessibility</h4><p>Enterprise-grade AI should not require a Fortune 500 budget. We are making this available at every scale.</p></div>
-      <div class="val-card reveal d3"><div class="val-n">06</div><h4>Build in the Open</h4><p>We ship fast, share our thinking, and iterate based on real feedback from real businesses.</p></div>
-    </div>
-  </div>
-</section>
-<div class="section-divider"></div>
-<section class="founder-section panel">
-  <div class="founder-inner">
-    <div class="founder-av reveal-l">A</div>
-    <div>
-      <div class="founder-role reveal">Founder &amp; CEO</div>
-      <div class="founder-name-el reveal d1">Mohd <em>Afnan</em> Hashmi</div>
-      <p class="founder-text reveal d2">Afenix Technologies was built from scratch with a clear conviction: the best AI for a business is one that understands it from the inside. We are combining cutting-edge open-source AI — fine-tuning, RAG pipelines, local LLMs — to create something that truly serves the enterprise, not the other way around.</p>
-      <div style="margin-top:32px;" class="reveal d3"><a class="btn btn-gold" href="contact.html">Get in Touch <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>
-    </div>
-  </div>
-</section>
+</main>
+
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand"><div class="nav-logo" style="font-size:18px;">Afenix</div><p>Private AI for the modern enterprise. Trained on your data. Deployed on your terms.</p></div>
-    <div class="footer-col"><h5>Product</h5><ul><li><a href="products.html">AfenixCore</a></li><li><a href="products.html">Startup Plan</a></li><li><a href="products.html">Corporate Plan</a></li><li><a href="products.html">Enterprise Plan</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div class="footer-col"><h5>Connect</h5><ul><li><a href="contact.html">Get a Demo</a></li><li><a href="contact.html">Join Waitlist</a></li><li><a href="contact.html">Join Our Team</a></li></ul></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand"><a href="index.html" class="brand"><img src="logo.png" alt=""><span class="nm">Afenix<b>·tech</b></span></a><p>Private AI for the modern enterprise.<br>Trained on your data. Deployed on your terms.</p></div>
+    <div class="foot-cols">
+      <div class="foot-col"><span class="foot-head">Product</span><a href="products.html">AfenixCore</a><a href="products.html">Startup</a><a href="products.html">Corporate</a><a href="products.html">Enterprise</a></div>
+      <div class="foot-col"><span class="foot-head">Company</span><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="foot-col"><span class="foot-head">Connect</span><a href="contact.html">Contact us</a></div>
+    </div>
   </div>
-  <div class="footer-bottom"><span>&#169; 2025 Afenix Technologies</span><span>Founded by Mohd Afnan Hashmi</span></div>
+  <div class="wrap foot-bottom"><span><span class="pulse"></span>All systems operational</span><span>© 2025 Afenix Technologies · Founded by Mohd Afnan Hashmi</span></div>
 </footer>
-<script src="shared.js"></script>
+
+<script src="three.min.js"></script>
+<script src="GLTFLoader.js"></script>
+<script src="star_data.js"></script>
+<script src="engine.js"></script>
 </body>
 </html>

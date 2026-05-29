@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Plan — AfenixCore</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .cin-wrap{position:relative;z-index:2}
+  .cin-section{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 6vw;position:relative}
+  .cin-tag{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--silver);text-transform:uppercase;margin-bottom:28px;opacity:0;transform:translateY(16px);transition:opacity .9s ease,transform .9s ease}
+  .cin-headline{font-family:var(--display);font-size:clamp(42px,8vw,96px);font-weight:600;line-height:1.0;letter-spacing:-.03em;color:#eaf2ff;opacity:0;transform:translateY(24px);transition:opacity 1.1s ease .1s,transform 1.1s ease .1s;max-width:900px}
+  .cin-headline .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .cin-sub{font-size:clamp(16px,2vw,22px);color:var(--ink-dim);max-width:600px;margin-top:28px;line-height:1.65;opacity:0;transform:translateY(20px);transition:opacity 1s ease .25s,transform 1s ease .25s}
+  .cin-spec{margin-top:48px;display:flex;gap:40px;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(20px);transition:opacity 1s ease .4s,transform 1s ease .4s}
+  .cin-spec-item{display:flex;flex-direction:column;align-items:center;gap:6px}
+  .cin-spec-item .val{font-family:var(--display);font-size:clamp(28px,4vw,48px);font-weight:600;color:#eaf2ff}
+  .cin-spec-item .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink-dim);text-transform:uppercase}
+  .cin-divider{width:1px;height:60px;background:var(--glass-brd);align-self:center}
+  .cin-section.visible .cin-tag,.cin-section.visible .cin-headline,.cin-section.visible .cin-sub,.cin-section.visible .cin-spec{opacity:1;transform:translateY(0)}
+  .cin-progress{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:10px}
+  .cin-dot{width:6px;height:6px;border-radius:50%;background:var(--glass-brd);border:1px solid rgba(140,180,255,.3);transition:background .4s,transform .4s;cursor:pointer}
+  .cin-dot.active{background:var(--silver);transform:scale(1.5)}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(188,214,255,.08);border:1px solid rgba(188,214,255,.18);border-radius:100px;padding:8px 20px;font-family:var(--mono);font-size:12px;color:var(--silver);letter-spacing:.08em;margin-bottom:32px;opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease}
+  .cin-section.visible .hero-badge{opacity:1;transform:translateY(0)}
+  .cin-back{position:fixed;top:28px;left:32px;z-index:100;font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-dim);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .3s}
+  .cin-back:hover{color:var(--silver)}
+  .cin-cta{margin-top:48px;opacity:0;transform:translateY(20px);transition:opacity 1s ease .55s,transform 1s ease .55s}
+  .cin-section.visible .cin-cta{opacity:1;transform:translateY(0)}
+  .scroll-hint-cin{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-dim);opacity:0;animation:hintfade 2s ease 2s forwards;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-hint-cin::after{content:'';display:block;width:1px;height:40px;background:linear-gradient(to bottom,var(--ink-dim),transparent);animation:hintline 2s ease 2.5s infinite}
+  @keyframes hintfade{to{opacity:.5}}
+  @keyframes hintline{0%,100%{opacity:.5;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.2)}}
+  .feature-number{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--silver);margin-bottom:20px;opacity:0;transform:translateY(10px);transition:opacity .8s ease,transform .8s ease}
+  .cin-section.visible .feature-number{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="vignette"></div>
+<div class="grain"></div>
+<a href="products.html" class="cin-back">← AfenixCore</a>
+<nav id="nav" style="background:transparent;border:none;box-shadow:none;">
+  <a href="index.html" class="brand"><img src="logo.png" alt=""><span class="nm">Afenix<b>·tech</b></span></a>
+  <div class="navlinks"><a href="index.html">Home</a><a href="products.html" class="active">AfenixCore</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+</nav>
+<div class="cin-progress" id="progress"></div>
+<main class="cin-wrap">
+
+  <section class="cin-section" data-section="0">
+    <div class="hero-badge"><span style="width:6px;height:6px;border-radius:50%;background:var(--silver);display:inline-block;"></span>AFENIXCORE · ENTERPRISE</div>
+    <div class="cin-headline">No limits.<br><span class="grad">No compromises.</span></div>
+    <div class="cin-sub">For regulated industries and global organisations that need unlimited models, unlimited seats, air-gapped deployment, and a dedicated engineering team that never clocks out.</div>
+    <div class="cin-spec">
+      <div class="cin-spec-item"><div class="val">∞</div><div class="lbl">Models & agents</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">∞</div><div class="lbl">Seats</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">24×7</div><div class="lbl">Engineering</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">0%</div><div class="lbl">Data to third parties</div></div>
+    </div>
+    <div class="scroll-hint-cin">SCROLL</div>
+  </section>
+
+  <section class="cin-section" data-section="1">
+    <div class="feature-number">01 · SOVEREIGN DEPLOYMENT</div>
+    <div class="cin-headline">On-prem.<br><span class="grad">Air-gapped.</span></div>
+    <div class="cin-sub">Fully air-gapped deployment on your own hardware — no internet connection required, ever. Your intelligence operates in complete isolation from the outside world.</div>
+    <div class="cin-spec">
+      <div class="cin-spec-item"><div class="val">Air-gap</div><div class="lbl">Deployment mode</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">On-prem</div><div class="lbl">Infrastructure</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">Sovereign</div><div class="lbl">Data residency</div></div>
+    </div>
+  </section>
+
+  <section class="cin-section" data-section="2">
+    <div class="feature-number">02 · CUSTOM AGENTS</div>
+    <div class="cin-headline">Agents built<br><span class="grad">for your world.</span></div>
+    <div class="cin-sub">Beyond the nine standard agents — we build custom AI agents for your specific workflows, processes, and edge cases. If your business does it, your AI can learn it.</div>
+    <div class="cin-spec">
+      <div class="cin-spec-item"><div class="val">9+</div><div class="lbl">Custom agents</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">CrewAI</div><div class="lbl">Agent framework</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">Extensible</div><div class="lbl">Open weights</div></div>
+    </div>
+  </section>
+
+  <section class="cin-section" data-section="3">
+    <div class="feature-number">03 · COMPLIANCE</div>
+    <div class="cin-headline">Regulated<br><span class="grad">industries ready.</span></div>
+    <div class="cin-sub">SOC 2 and ISO 27001 aligned. Full audit logs, SSO, SAML, and SCIM provisioning. Built for FinTech, healthcare, legal, and government organisations that cannot afford gaps.</div>
+    <div class="cin-spec">
+      <div class="cin-spec-item"><div class="val">SOC 2</div><div class="lbl">Alignment</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">ISO 27001</div><div class="lbl">Alignment</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">Full</div><div class="lbl">Audit logs</div></div>
+    </div>
+  </section>
+
+  <section class="cin-section" data-section="4">
+    <div class="feature-number">04 · DEDICATED ENGINEERING</div>
+    <div class="cin-headline">A team that's<br><span class="grad">always there.</span></div>
+    <div class="cin-sub">24×7 dedicated engineering support. A team that knows your deployment inside out — your architecture, your agents, your data. Not a ticket queue. A real team.</div>
+    <div class="cin-spec">
+      <div class="cin-spec-item"><div class="val">24×7</div><div class="lbl">Support</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">Dedicated</div><div class="lbl">Engineering team</div></div>
+      <div class="cin-divider"></div>
+      <div class="cin-spec-item"><div class="val">8–12 wks</div><div class="lbl">Typical deployment</div></div>
+    </div>
+  </section>
+
+  <section class="cin-section" data-section="5">
+    <div class="cin-tag">Tailored to your scale</div>
+    <div class="cin-headline">Built for<br><span class="grad">the critical.</span></div>
+    <div class="cin-sub">Enterprise pricing is custom — scoped to your infrastructure, headcount, and compliance requirements. Let's talk about what you need.</div>
+    <div class="cin-cta">
+      <a href="contact.html" class="btn btn-primary" style="font-size:16px;padding:16px 36px;">Get in touch →</a>
+    </div>
+  </section>
+
+</main>
+<script src="three.min.js"></script>
+<script src="GLTFLoader.js"></script>
+<script src="star_data.js"></script>
+<script src="engine.js"></script>
+<script>
+(function(){
+  const sections=document.querySelectorAll('.cin-section');
+  const progress=document.getElementById('progress');
+  sections.forEach((_,i)=>{const dot=document.createElement('div');dot.className='cin-dot';dot.addEventListener('click',()=>sections[i].scrollIntoView({behavior:'smooth'}));progress.appendChild(dot);});
+  const dots=progress.querySelectorAll('.cin-dot');
+  const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');const idx=parseInt(entry.target.dataset.section);dots.forEach((d,i)=>d.classList.toggle('active',i===idx));}});},{threshold:0.5});
+  sections.forEach(s=>observer.observe(s));
+})();
+</script>
+</body>
+</html>
