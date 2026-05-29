@@ -916,11 +916,31 @@
     }));
 
     const form = document.querySelector('.cform');
-    if (form) form.addEventListener('submit', e => {
+    if (form) form.addEventListener('submit', async e => {
       e.preventDefault();
       const b = form.querySelector('button[type=submit]'); if (!b) return;
-      const x = b.textContent; b.textContent = 'Received — we’ll be in touch ✓'; form.reset();
-      setTimeout(() => b.textContent = x, 3000);
+      const orig = b.textContent;
+      b.textContent = 'Sending…'; b.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          b.textContent = "Received — we'll be in touch ✓";
+          form.reset();
+          setTimeout(() => { b.textContent = orig; b.disabled = false; }, 4000);
+        } else {
+          b.textContent = 'Something went wrong — try again';
+          b.disabled = false;
+          setTimeout(() => { b.textContent = orig; }, 3000);
+        }
+      } catch(_) {
+        b.textContent = 'Network error — try again';
+        b.disabled = false;
+        setTimeout(() => { b.textContent = orig; }, 3000);
+      }
     });
   }
 
